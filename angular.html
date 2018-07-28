@@ -10,10 +10,15 @@
 	<div ng-controller="TaskController as taskController">
 		<lable>Number of Task(s) : <lable />{{taskController.tasks.length}}
 		<br />
+		{{taskController.updateMessage}} <br />
 		<form>
-			<lable>New Task Name :    <lable /> <input type="text"
-				ng-model="taskController.newTask" /> 
-			<submit ng-click="taskController.addNewTask();">Add New Task</submit>
+			<lable>New Task Name : <lable /> <input
+				plceholder="Enter a new task " type="text"
+				ng-model="taskController.newTask" />
+			<button ng-disabled="!taskController.isValidNewTask();"
+				ng-click="taskController.addNewTask();">
+				Add New Task
+				</button>
 		</form>
 	</div>
 </body>
