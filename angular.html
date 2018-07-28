@@ -8,6 +8,13 @@
 </head>
 <body>
 	<div ng-controller="TaskController as taskController">
-		{{taskController.taskList.length}}</div>
+		<lable>Number of Task(s) : <lable />{{taskController.tasks.length}}
+		<br />
+		<form>
+			<lable>New Task Name :    <lable /> <input type="text"
+				ng-model="taskController.newTask" /> 
+			<submit ng-click="taskController.addNewTask();">Add New Task</submit>
+		</form>
+	</div>
 </body>
 </html>
