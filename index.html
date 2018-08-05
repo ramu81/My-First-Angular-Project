@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="javascripts/controller.js"></script>
+</head>
+<body>
+	<div ng-controller=" TaskController as taskController ">
+		Number of Tasks : {{ taskController.tasks.length }}
+		<form>
+			Add A Task :
+			</br><lable>Name : </lable> <input type="text" ng-model="taskController.newTask.name"></input>
+			</br><lable>Month : </lable> <input type="text" ng-model="taskController.newTask.month"></input>
+			</br><lable>Day : </lable> <input type="text" ng-model="taskController.newTask.day"></input>
+			</br><lable>Year : </lable> <input type="text" ng-model="taskController.newTask.year"></input>
+			</br><input type="button" value="Add" ng-click="taskController.addTask();" ng-disabled="taskController.disableAddTask();" />
+		</form>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Date</th>
+				<th></th>
+			</tr>
+
+			<tr ng-repeat=" task in taskController.getTasks()">
+				<td>{{task.name}}</td>
+				<td>{{task.month}}/{{task.day}}/{{task.year}}</td>
+				<td><input type="button" value="Delete" ng-click="taskController.deleteTask(task);"/></td>
+			</tr>
+
+		</table>
+	</div>
+</body>
+</html>
